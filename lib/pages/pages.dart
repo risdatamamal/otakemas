@@ -1,0 +1,31 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:math';
+import 'dart:async';
+
+// import 'package:otakemas/cubit/cubit.dart';
+import 'package:otakemas/models/models.dart';
+import 'package:otakemas/shared/shared.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:otakemas/widgets/widgets.dart';
+import 'package:supercharged/supercharged.dart';
+import 'package:get/get.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/widgets.dart';
+
+part 'splash_page.dart';
+part 'intro_page.dart';
+part 'login_page.dart';
+part 'home_page.dart';
+part 'onboarding_page_1.dart';
+part 'onboarding_page_2.dart';
+part 'onboarding_page_3.dart';
