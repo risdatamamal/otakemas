@@ -1,7 +1,8 @@
-part of 'pages.dart';
+part of '../pages.dart';
 
 class OnboardingPage1 extends StatelessWidget {
-  const OnboardingPage1({Key? key}) : super(key: key);
+  final SharedPreferences? prefs;
+  const OnboardingPage1({Key? key, this.prefs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class OnboardingPage1 extends StatelessWidget {
                    Column(
                     children: [
                       CustomElevatedButton(textColor: black, text: "Next", onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (c) => OnboardingPage2()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => OnboardingPage2()));
                       }),
                     ],
                   ),

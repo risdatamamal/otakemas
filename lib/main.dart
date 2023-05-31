@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:otakemas/shared/shared.dart';
-import 'package:otakemas/pages/pages.dart';
+import 'package:OtakEmas/shared/shared.dart';
+import 'package:OtakEmas/pages/pages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -13,7 +13,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final SharedPreferences prefs;
-  MyApp({required this.prefs});
+
+  const MyApp({super.key, required this.prefs});
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -26,10 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: white),
       routes: <String, WidgetBuilder>{
         splashPage: (BuildContext context) => SplashPage(prefs: prefs),
-        loginPage: (BuildContext context) => LoginPage(),
-        onboardingPage1: (BuildContext context) => OnboardingPage1(),
-        onboardingPage2: (BuildContext context) => OnboardingPage2(),
-        onboardingPage3: (BuildContext context) => OnboardingPage3(),
+        loginPage: (BuildContext context) => LoginPage(prefs: prefs),
         homePage: (BuildContext context) => HomePage(),
       },
       home: handleCurrentScreen(),
@@ -38,11 +37,11 @@ class MyApp extends StatelessWidget {
 
   Widget handleCurrentScreen() {
     bool seen = (prefs.getBool('seen') ?? false);
-    // if (seen) {
-    //   return new LoginPage();
-    // } else {
-    //   return new SplashPage(prefs: prefs);
-    // }
-    return new SplashPage(prefs: prefs);
+    if (seen) {
+      return new HomePage();
+    } else {
+      return new SplashPage(prefs: prefs);
+    }
+    // return new SplashPage(prefs: prefs);
   }
 }

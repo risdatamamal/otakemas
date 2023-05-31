@@ -5,11 +5,12 @@ enum Gender { male, female }
 class LoginPage extends StatelessWidget {
   final Function(Gender)? onGenderSelected;
   final Gender? selectedGender;
+  final SharedPreferences? prefs;
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
 
-  LoginPage({Key? key, this.onGenderSelected, this.selectedGender}) : super(key: key);
+  LoginPage({Key? key, this.onGenderSelected, this.selectedGender, this.prefs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   CustomElevatedButton(text: 'Login', textColor: black, onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => OnboardingPage1()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => OnboardingPage1()));
                   },)
                 ],
               )),

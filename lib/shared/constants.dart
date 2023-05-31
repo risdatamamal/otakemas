@@ -1,10 +1,13 @@
 part of 'shared.dart';
 
-const String splashPage = 'Splash Page';
-const String intro = 'Introduction';
-const String loginPage = 'Login Page';
+const String splashPage = 'Splash';
+const String loginPage = 'Login';
 const String forgotPassword = 'Forgot Password';
-const String homePage = 'Home Page';
-const String onboardingPage1 = 'Onboarding Page 1';
-const String onboardingPage2 = 'Onboarding Page 2';
-const String onboardingPage3 = 'Onboarding Page 3';
+const String homePage = 'Home';
+const String dailyCheck = 'Daily Check';
+const String workout = 'Workout';
+const String panduanIslami = 'Panduan Islami';
+const String dzikir = 'Dzikir';
+const String dzikirPagi = 'Dzikir Pagi';
+const String dzikirPetang = 'Dzikir Petang';
+const String motivasi = 'Motivasi';

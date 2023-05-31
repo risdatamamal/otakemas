@@ -1,12 +1,12 @@
 part of 'models.dart';
 
-class IntroModel {
+class OnboardingModel {
   Image? image;
   String? title;
   String? description;
   Widget? extraWidget;
 
-  IntroModel({this.image, this.title, this.description, this.extraWidget}) {
+  OnboardingModel({this.image, this.title, this.description, this.extraWidget}) {
     if (extraWidget == null) {
       extraWidget = new Container();
     }

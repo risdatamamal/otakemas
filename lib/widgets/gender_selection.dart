@@ -21,29 +21,33 @@ class _GenderSelectionState extends State<GenderSelection> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: <Widget>[
-        RadioListTile<Gender>(
-          title: Text('Male', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-          value: Gender.male,
-          groupValue: _selectedGender,
-          onChanged: (value) {
-            setState(() {
-              _selectedGender = value!;
-              widget.onGenderSelected(_selectedGender);
-            });
-          },
+        Expanded(
+          child: RadioListTile<Gender>(
+            title: Text('Male', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            value: Gender.male,
+            groupValue: _selectedGender,
+            onChanged: (value) {
+              setState(() {
+                _selectedGender = value!;
+                widget.onGenderSelected(_selectedGender);
+              });
+            },
+          ),
         ),
-        RadioListTile<Gender>(
-          title: Text('Female', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-          value: Gender.female,
-          groupValue: _selectedGender,
-          onChanged: (value) {
-            setState(() {
-              _selectedGender = value!;
-              widget.onGenderSelected(_selectedGender);
-            });
-          },
+        Expanded(
+          child: RadioListTile<Gender>(
+            title: Text('Female', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            value: Gender.female,
+            groupValue: _selectedGender,
+            onChanged: (value) {
+              setState(() {
+                _selectedGender = value!;
+                widget.onGenderSelected(_selectedGender);
+              });
+            },
+          ),
         ),
       ],
     );

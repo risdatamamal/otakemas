@@ -1,3 +1,6 @@
 import 'package:flutter/material.dart';
 
-part 'intro_model.dart';
+part 'onboarding_model.dart';
+part 'motivasi_model.dart';
+part 'dzikir_pagi_model.dart';
+part 'dzikir_petang_model.dart';

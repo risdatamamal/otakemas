@@ -1,4 +1,4 @@
-name: otakemas
+name: 'OtakEmas'
 description: A new Flutter project for PMO Application
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
@@ -39,6 +39,18 @@ flutter:
     - assets/image/logo-only.png
     - assets/image/title.png
     - assets/image/otak.png
+    - assets/image/daily-task.png
+    - assets/image/motivasi.png
+    - assets/image/panduan-islami.png
+    - assets/image/workout.png
+    - assets/image/dzikir-pagi.png
+    - assets/image/dzikir-petang.png
+    - assets/image/panduan-islami-dzikir.png
+    - assets/image/panduan-islami-kalender-puasa.png
+    - assets/image/finish.png
+    - assets/image/workout-1.png
+    - assets/image/workout-2.png
+    - assets/image/workout-3.png
     - assets/image/onboarding-1.png
     - assets/image/onboarding-2.png
     - assets/image/onboarding-3.png
