@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: mainColor,
-        title: const Text("OtakEmas",
+        title: const Text("Otak Emas",
             style: TextStyle(
                 fontSize: 24, color: black, fontWeight: FontWeight.w700)),
       ),
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(left: 10, right: 20),
                       child: GestureDetector(
                         onTap: () {
-                          print('Avatar clicked!');
+                          Navigator.push(context, MaterialPageRoute(builder: (c) => ProfilePage()));
                         },
                         child: CircleAvatar(
                           radius: 50,

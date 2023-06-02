@@ -1,4 +1,4 @@
-part of 'pages.dart';
+part of '../pages.dart';
 
 class PanduanIslamiPage extends StatefulWidget {
   const PanduanIslamiPage({Key? key}) : super(key: key);
@@ -31,23 +31,27 @@ class _PanduanIslamiPageState extends State<PanduanIslamiPage> {
               children: [
                 CustomCard(
                   textColor: black,
-                  title: "Ceramah",
+                  title: ceramah,
                   subtitle:
                   "Berisi Mengenai Video - Video\nCeramah tentang bahaya PMO",
                   image: Assets.panduanIslami,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c) => CeramahVideoListPage()));
+                  },
                 ),
                 CustomCard(
                   textColor: black,
-                  title: "Kalender Puasa",
+                  title: kalenderPuasa,
                   subtitle:
                   "Untuk Melihat Jadwal Puasa di\nHari - Hari Yang ditentukan Islam",
                   image: Assets.kalenderPuasa,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c) => KalenderPuasaPage()));
+                  },
                 ),
                 CustomCard(
                   textColor: black,
-                  title: "Dzikir",
+                  title: dzikir,
                   subtitle: "Bekali Dirimu Dengan Kumpulan\nDzikir Pagi dan Petang",
                   image: Assets.dzikir,
                   onPressed: () {

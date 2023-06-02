@@ -6,7 +6,8 @@ class CustomCard extends StatelessWidget {
   final void Function()? onPressed;
   final String title;
   final String subtitle;
-  final String image;
+  final String? image;
+  final String? icon;
 
   const CustomCard(
       {super.key,
@@ -15,7 +16,8 @@ class CustomCard extends StatelessWidget {
       this.onPressed,
       required this.title,
       required this.subtitle,
-      required this.image});
+      this.image,
+      this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,13 @@ class CustomCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  width: 70,
-                  height: 70,
-                  margin: const EdgeInsets.only(right: 8),
-                  child: Image.asset(image),
-                ),
+                if (image != null)
+                  Container(
+                    width: 70,
+                    height: 70,
+                    margin: const EdgeInsets.only(right: 8),
+                    child: Image.asset(image!),
+                  ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,16 +47,16 @@ class CustomCard extends StatelessWidget {
                       Text(
                         title,
                         style: GoogleFonts.poppins(
-                          color: Colors.black,
+                          color: black,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 3.0),
+                      const SizedBox(height: 3.0),
                       Text(
                         subtitle,
                         style: GoogleFonts.poppins(
-                          color: Colors.black,
+                          color: black,
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
                         ),
@@ -63,7 +66,8 @@ class CustomCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 8.0),
                 IconButton(
-                    onPressed: onPressed, icon: Icon(Icons.arrow_forward_ios)),
+                    onPressed: onPressed,
+                    icon: const Icon(Icons.arrow_forward_ios)),
               ],
             ),
           ],

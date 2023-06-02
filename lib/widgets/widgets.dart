@@ -10,3 +10,4 @@ part 'custom_card.dart';
 part 'custom_card_with_background.dart';
 part 'custom_option_page.dart';
 part 'custom_finish_page.dart';
+part 'custom_card_profile.dart';

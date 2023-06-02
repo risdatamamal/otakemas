@@ -1,4 +1,4 @@
-part of '../pages.dart';
+part of '../../../pages.dart';
 
 class DzikirPetangBodyPage extends StatelessWidget {
   final DzikirPetangModel dzikirPetangModel;

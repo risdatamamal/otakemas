@@ -1,4 +1,4 @@
-part of '../pages.dart';
+part of '../../../pages.dart';
 
 class DzikirPetangPage extends StatefulWidget {
   const DzikirPetangPage({Key? key}) : super(key: key);

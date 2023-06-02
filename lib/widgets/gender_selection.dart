@@ -25,7 +25,7 @@ class _GenderSelectionState extends State<GenderSelection> {
       children: <Widget>[
         Expanded(
           child: RadioListTile<Gender>(
-            title: Text('Male', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            title: Text('Laki - Laki', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
             value: Gender.male,
             groupValue: _selectedGender,
             onChanged: (value) {
@@ -38,7 +38,7 @@ class _GenderSelectionState extends State<GenderSelection> {
         ),
         Expanded(
           child: RadioListTile<Gender>(
-            title: Text('Female', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            title: Text('Perempuan', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
             value: Gender.female,
             groupValue: _selectedGender,
             onChanged: (value) {

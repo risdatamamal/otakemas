@@ -20,7 +20,6 @@ abstract class Assets {
   static const String workout1 = "assets/image/workout-1.png";
   static const String workout2 = "assets/image/workout-2.png";
   static const String workout3 = "assets/image/workout-3.png";
-
-
-
+  static const String badgeCheck = "assets/image/badge-check.png";
+  static const String history = "assets/image/history.png";
 }
