@@ -13,7 +13,8 @@ class DzikirPagiBodyPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: black),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (c) => DzikirPage()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (c) => DzikirPage()));
           },
         ),
         backgroundColor: mainColor,
@@ -28,32 +29,36 @@ class DzikirPagiBodyPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  dzikirPagiModel.title,
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              if(dzikirPagiModel.note != '')
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    dzikirPagiModel.note,
-                    style: GoogleFonts.poppins(
-                      color: black,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic,
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      dzikirPagiModel.title,
+                      style: GoogleFonts.poppins(
+                        color: black,
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
+                  if (dzikirPagiModel.note != '')
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        dzikirPagiModel.note,
+                        style: GoogleFonts.poppins(
+                          color: black,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          fontStyle: FontStyle.italic,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -66,29 +71,33 @@ class DzikirPagiBodyPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "*Artinya*",
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "*Artinya*",
+                      style: GoogleFonts.poppins(
+                        color: black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  dzikirPagiModel.artinya,
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      dzikirPagiModel.artinya,
+                      style: GoogleFonts.poppins(
+                        color: black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                ),
+                ],
               ),
             ],
           ),

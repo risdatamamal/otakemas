@@ -25,73 +25,81 @@ class DzikirPetangBodyPage extends StatelessWidget {
         color: backgroundDzikirPetang,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  dzikirPetangModel.title,
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              if(dzikirPetangModel.note != '')
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    dzikirPetangModel.note,
+                    dzikirPetangModel.title,
                     style: GoogleFonts.poppins(
                       color: black,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic,
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  dzikirPetangModel.arabic,
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                if (dzikirPetangModel.note != '')
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      dzikirPetangModel.note,
+                      style: GoogleFonts.poppins(
+                        color: black,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                dzikirPetangModel.arabic,
+                style: GoogleFonts.poppins(
+                  color: black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
+                textAlign: TextAlign.center,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "*Artinya*",
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "*Artinya*",
+                    style: GoogleFonts.poppins(
+                      color: black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  dzikirPetangModel.artinya,
-                  style: GoogleFonts.poppins(
-                    color: black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    dzikirPetangModel.artinya,
+                    style: GoogleFonts.poppins(
+                      color: black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
+        ),
         ),
       ),
     );
