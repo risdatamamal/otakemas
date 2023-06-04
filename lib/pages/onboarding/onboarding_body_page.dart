@@ -1,8 +1,9 @@
 part of '../pages.dart';
 
-class OnboardingPage1 extends StatelessWidget {
-  final SharedPreferences? prefs;
-  const OnboardingPage1({Key? key, this.prefs}) : super(key: key);
+class OnboardingBodyPage extends StatelessWidget {
+  final OnboardingModel onboardingModel;
+
+  OnboardingBodyPage(this.onboardingModel);
 
   @override
   Widget build(BuildContext context) {
@@ -17,36 +18,33 @@ class OnboardingPage1 extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Image.asset(Assets.onBoarding1, width: 245),
+                      Image.asset(onboardingModel.image, width: 245),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text("Selamat Datang",
-                          style: GoogleFonts.poppins(
-                              color: black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-                      const SizedBox(width: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Di Aplikasi",
+                          Text(onboardingModel.title,
                               style: GoogleFonts.poppins(
                                   color: black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold)),
-                          SizedBox(width: 4),
-                          Text("OtakEmas",
+                          const SizedBox(width: 4),
+                          if(onboardingModel.appname != null)
+                            Text(
+                              onboardingModel.appname!,
                               style: GoogleFonts.poppins(
                                   color: mainColor,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold)),
+                                  fontWeight: FontWeight.bold),
+                            ),
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text("Asisten pribadi untuk membantu Anda berhenti dari kecanduan PMO (Pornografi,masturbasi,orgasm)",
+                      Text(onboardingModel.subtitle,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
                               color: black,
@@ -55,13 +53,6 @@ class OnboardingPage1 extends StatelessWidget {
                       const SizedBox(
                         height: 40,
                       ),
-                    ],
-                  ),
-                   Column(
-                    children: [
-                      CustomElevatedButton(textColor: black, text: "Next", onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => OnboardingPage2()));
-                      }),
                     ],
                   ),
                 ],

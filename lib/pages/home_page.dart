@@ -1,7 +1,6 @@
 part of 'pages.dart';
 
 class HomePage extends StatefulWidget {
-
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -37,7 +36,8 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(left: 10, right: 20),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (c) => ProfilePage()));
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (c) => ProfilePage()));
                         },
                         child: CircleAvatar(
                           radius: 50,
@@ -54,6 +54,8 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 const SizedBox(height: 16.0),
+                Center(child: StopwatchWidget()),
+                const SizedBox(height: 16.0),
                 Text("Support System",
                     style: GoogleFonts.poppins(
                         color: black,
@@ -67,7 +69,8 @@ class _HomePageState extends State<HomePage> {
                       "Pengecekan harian kejujuran\nanda dalam menahan nafsu\nPMO",
                   image: Assets.dailyTask,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => DailyCheckPage1()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => DailyCheckPage1()));
                   },
                 ),
                 CustomCard(
@@ -77,7 +80,8 @@ class _HomePageState extends State<HomePage> {
                       "Kegiatan - kegiatan positif\ndengan cara islam untuk anda",
                   image: Assets.panduanIslami,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => PanduanIslamiPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => PanduanIslamiPage()));
                   },
                 ),
                 CustomCard(
@@ -86,7 +90,8 @@ class _HomePageState extends State<HomePage> {
                   subtitle: "Pemberi Dorongan dan\nMasukan Positif untuk Anda",
                   image: Assets.motivasi,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => MotivasiPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => MotivasiPage()));
                   },
                 ),
                 CustomCard(
@@ -96,7 +101,8 @@ class _HomePageState extends State<HomePage> {
                       "Aktivitas Memelihara Kesehatan\ndan Kebugaran Tubuh Anda",
                   image: Assets.workout,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => WorkoutPage1()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => WorkoutPage1()));
                   },
                 ),
               ],

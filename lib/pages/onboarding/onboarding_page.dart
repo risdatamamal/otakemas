@@ -1,13 +1,15 @@
 part of '../pages.dart';
 
-class MotivasiPage extends StatefulWidget {
-  const MotivasiPage({Key? key}) : super(key: key);
+class OnboardingPage extends StatefulWidget {
+  final SharedPreferences? prefs;
+
+  const OnboardingPage({Key? key, this.prefs}) : super(key: key);
 
   @override
-  State<MotivasiPage> createState() => _MotivasiPageState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _MotivasiPageState extends State<MotivasiPage> {
+class _OnboardingPageState extends State<OnboardingPage> {
   late PageController _pageController;
   int _currentPageIndex = 0;
 
@@ -24,7 +26,7 @@ class _MotivasiPageState extends State<MotivasiPage> {
   }
 
   void _goToNextPage() {
-    if (_currentPageIndex < motivasion.length - 1) {
+    if (_currentPageIndex < onboardings.length - 1) {
       _currentPageIndex++;
       _pageController.animateToPage(
         _currentPageIndex,
@@ -34,7 +36,7 @@ class _MotivasiPageState extends State<MotivasiPage> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => FinishMotivasiPage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
   }
@@ -51,9 +53,9 @@ class _MotivasiPageState extends State<MotivasiPage> {
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
-                  itemCount: motivasion.length,
+                  itemCount: onboardings.length,
                   itemBuilder: (context, index) {
-                    return MotivasiBodyPage(motivasion[index]);
+                    return OnboardingBodyPage(onboardings[index]);
                   },
                   onPageChanged: (index) {
                     setState(() {

@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:OtakEmas/models/models.dart';
 import 'package:OtakEmas/shared/shared.dart';
 import 'package:OtakEmas/widgets/widgets.dart';
+import 'package:OtakEmas/entities/entities.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,16 +23,16 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:hijri/hijri_calendar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 part 'splash_page.dart';
 part 'login_page.dart';
 part 'home_page.dart';
+part 'stop_watch_widget.dart';
 
-part 'onboarding/onboarding_page_1.dart';
-part 'onboarding/onboarding_page_2.dart';
-part 'onboarding/onboarding_page_3.dart';
+part 'onboarding/onboarding_page.dart';
+part 'onboarding/onboarding_body_page.dart';
 
 part 'profile/profile_page.dart';
 part 'profile/riwayat_page.dart';

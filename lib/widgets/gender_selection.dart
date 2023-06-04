@@ -4,7 +4,8 @@ class GenderSelection extends StatefulWidget {
   final Gender selectedGender;
   final void Function(Gender) onGenderSelected;
 
-  GenderSelection({required this.selectedGender, required this.onGenderSelected});
+  GenderSelection(
+      {required this.selectedGender, required this.onGenderSelected});
 
   @override
   _GenderSelectionState createState() => _GenderSelectionState();
@@ -25,7 +26,8 @@ class _GenderSelectionState extends State<GenderSelection> {
       children: <Widget>[
         Expanded(
           child: RadioListTile<Gender>(
-            title: Text('Laki - Laki', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            title: Text('Laki - Laki',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
             value: Gender.male,
             groupValue: _selectedGender,
             onChanged: (value) {
@@ -38,7 +40,8 @@ class _GenderSelectionState extends State<GenderSelection> {
         ),
         Expanded(
           child: RadioListTile<Gender>(
-            title: Text('Perempuan', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+            title: Text('Perempuan',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
             value: Gender.female,
             groupValue: _selectedGender,
             onChanged: (value) {

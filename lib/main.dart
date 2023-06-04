@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         splashPage: (BuildContext context) => SplashPage(prefs: prefs),
         loginPage: (BuildContext context) => LoginPage(prefs: prefs),
+        onboardingPage: (BuildContext context) => OnboardingPage(prefs: prefs),
         homePage: (BuildContext context) => HomePage(),
       },
       home: handleCurrentScreen(),
