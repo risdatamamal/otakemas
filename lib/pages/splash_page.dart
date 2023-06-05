@@ -10,18 +10,25 @@ class SplashPage extends StatefulWidget {
 }
 
 class SplashPageState extends State<SplashPage> {
-  startTime() {
-    Timer(const Duration(seconds: 3), () async {
-      //  Send user to Login Screen
-      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
-    });
-  }
-
   @override
   initState() {
     super.initState();
+    checkLoginStatus();
+  }
 
-    startTime();
+  void checkLoginStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+
+    Timer(const Duration(seconds: 3), () async {
+      if (isLoggedIn) {
+        // Pengguna sudah login sebelumnya, arahkan ke halaman beranda atau halaman utama
+        Navigator.pushReplacementNamed(context, homePage);
+      } else {
+        // Pengguna belum login sebelumnya, arahkan ke halaman login
+        Navigator.pushReplacementNamed(context, loginPage);
+      }
+    });
   }
 
   @override

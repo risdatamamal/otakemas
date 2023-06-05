@@ -1,5 +1,20 @@
 part of '../../pages.dart';
 
+Future<void> _launchYouTubeApp(String videoId) async {
+  final videoUrl = 'vnd.youtube:$videoId';
+
+  if (await canLaunch(videoUrl)) {
+    await launch(videoUrl);
+  } else {
+    final webUrl = 'https://www.youtube.com/watch?v=$videoId';
+    if (await canLaunch(webUrl)) {
+      await launch(webUrl);
+    } else {
+      throw 'Tidak dapat membuka video';
+    }
+  }
+}
+
 class CeramahVideoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +45,7 @@ class CeramahVideoListPage extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 24, left: 24),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          10), // Adjust the radius value to control the roundness
+                          10),
                     ),
                     child: ListTile(
                       leading: Container(
@@ -56,15 +71,5 @@ class CeramahVideoListPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchYouTubeApp(String videoId) async {
-    final videoUrl = 'https://www.youtube.com/watch?v=$videoId';
-
-    if (await canLaunch(videoUrl)) {
-      await launch(videoUrl);
-    } else {
-      throw 'Tidak dapat membuka video';
-    }
   }
 }

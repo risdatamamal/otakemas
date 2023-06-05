@@ -1,7 +1,8 @@
 part of '../pages.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  final User user;
+  const ProfilePage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -35,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "Willya Ramadhan",
+                  widget.user.name,
                   style: GoogleFonts.poppins(
                     color: black,
                     fontSize: 12,
@@ -44,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 Text(
-                  "23 Tahun",
+                  widget.user.age,
                   style: GoogleFonts.poppins(
                     color: black,
                     fontSize: 12,
@@ -53,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 Text(
-                  "Laki - Laki",
+                  widget.user.gender.toString(),
                   style: GoogleFonts.poppins(
                     color: black,
                     fontSize: 12,

@@ -1,9 +1,7 @@
 part of '../pages.dart';
 
 class OnboardingPage extends StatefulWidget {
-  final SharedPreferences? prefs;
-
-  const OnboardingPage({Key? key, this.prefs}) : super(key: key);
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();

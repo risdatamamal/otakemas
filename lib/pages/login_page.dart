@@ -1,11 +1,8 @@
 part of 'pages.dart';
 
-enum Gender { male, female }
-
 class LoginPage extends StatefulWidget {
-  final Function(Gender)? onGenderSelected;
-  final Gender? selectedGender;
-  final SharedPreferences? prefs;
+  final Function(int)? onGenderSelected;
+  final int? selectedGender;
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
@@ -22,8 +19,7 @@ class LoginPage extends StatefulWidget {
     );
   }
 
-  LoginPage(
-      {super.key, this.onGenderSelected, this.selectedGender, this.prefs});
+  LoginPage({super.key, this.onGenderSelected, this.selectedGender});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -32,10 +28,41 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
-  void _login() {
+  void _login(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (c) => OnboardingPage()));
+      UserRepository userRepository = UserRepository(store: store);
+
+      User? user = userRepository.getUserByName(widget.nameController.text);
+
+      // var name = widget.nameController.text;
+      // var age = widget.ageController.text;
+      // var gender = widget.selectedGender.toString();
+
+      // print(name);
+      // print(age);
+      // print(gender);
+
+      // Setelah login berhasil
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isLoggedIn', true);
+
+      if (user == null) {
+        int id = userRepository.addOrUpdateUser(
+          User(
+            name: widget.nameController.text,
+            age: widget.ageController.text,
+            gender: widget.selectedGender.toString(),
+          ),
+        );
+
+        user = userRepository.getUserById(id);
+      }
+
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, onboardingPage);
+      } else {
+        Navigator.pushReplacementNamed(context, homePage);
+      }
     }
   }
 
@@ -76,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Silahkan Masukan Nama Anda",
                     textInputType: TextInputType.text,
                     filteringTextInputFormatter:
-                        FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                        FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ),
                   const SizedBox(height: 20),
                   Text('Umur',
@@ -93,9 +120,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 20),
                   GenderSelection(
-                    selectedGender: Gender.male,
+                    selectedGender: widget.selectedGender ?? 0,
                     onGenderSelected: (gender) {
-                      widget._showToast(gender.toString());
+                      // Change value widget.selectedGender == 0 to widget.selectedGender == "Laki - Laki"
+                      // Change value widget.selectedGender == 1 to widget.selectedGender == "Perempuan"
+                      if (widget.selectedGender == 0) {
+                        widget._showToast('Laki - Laki');
+                      } else if (widget.selectedGender == 1) {
+                        widget._showToast('Perempuan');
+                      }
                     },
                   ),
                   const SizedBox(height: 20),
@@ -103,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                     text: 'Login',
                     textColor: black,
                     onPressed: () {
-                      _login();
+                      _login(context);
                     },
                   ),
                 ],

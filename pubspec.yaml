@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  objectbox: ^2.0.0
+  objectbox_flutter_libs: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -32,10 +34,9 @@ dev_dependencies:
   table_calendar: ^3.0.0
   flutter_colorpicker: ^0.5.0
   hijri: ^3.0.0
-  objectbox: ^2.0.0
-  objectbox_flutter_libs: ^2.0.0
   build_runner: ^2.4.4
   fluttertoast: ^8.0.7
+  objectbox_generator: ^2.0.0
 
 
 flutter:
@@ -64,3 +65,9 @@ flutter:
     - assets/image/onboarding-3.png
     - assets/image/badge-check.png
     - assets/image/history.png
+    - assets/image/otak-day-1.png
+    - assets/image/otak-day-3.png
+    - assets/image/otak-day-7.png
+    - assets/image/otak-day-15.png
+    - assets/image/otak-day-30.png
+    - assets/image/otak-day-90.png

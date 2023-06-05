@@ -46,7 +46,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay1),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -65,7 +65,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay3),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -84,7 +84,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay7),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -109,7 +109,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay15),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -128,7 +128,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay30),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -147,7 +147,7 @@ class _LencanaPageState extends State<LencanaPage> {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage(Assets.otak),
+                          backgroundImage: AssetImage(Assets.otakDay90),
                         ),
                         const SizedBox(height: 8),
                         Text(

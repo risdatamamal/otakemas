@@ -22,4 +22,10 @@ abstract class Assets {
   static const String workout3 = "assets/image/workout-3.png";
   static const String badgeCheck = "assets/image/badge-check.png";
   static const String history = "assets/image/history.png";
+  static const String otakDay1 = "assets/image/otak-day-1.png";
+  static const String otakDay3 = "assets/image/otak-day-3.png";
+  static const String otakDay7 = "assets/image/otak-day-7.png";
+  static const String otakDay15 = "assets/image/otak-day-15.png";
+  static const String otakDay30 = "assets/image/otak-day-30.png";
+  static const String otakDay90 = "assets/image/otak-day-90.png";
 }
