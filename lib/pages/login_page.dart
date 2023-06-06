@@ -1,15 +1,12 @@
 part of 'pages.dart';
 
 class LoginPage extends StatefulWidget {
-  final Function(int)? onGenderSelected;
-  final int? selectedGender;
-
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
 
   void _showToast(String gender) {
     Fluttertoast.showToast(
-      msg: 'Selected Gender: $gender',
+      msg: 'Gender: $gender',
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
@@ -19,13 +16,14 @@ class LoginPage extends StatefulWidget {
     );
   }
 
-  LoginPage({super.key, this.onGenderSelected, this.selectedGender});
+  LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String selectedGender = '';
   final _formKey = GlobalKey<FormState>();
 
   void _login(BuildContext context) async {
@@ -34,15 +32,6 @@ class _LoginPageState extends State<LoginPage> {
 
       User? user = userRepository.getUserByName(widget.nameController.text);
 
-      // var name = widget.nameController.text;
-      // var age = widget.ageController.text;
-      // var gender = widget.selectedGender.toString();
-
-      // print(name);
-      // print(age);
-      // print(gender);
-
-      // Setelah login berhasil
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool('isLoggedIn', true);
 
@@ -51,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           User(
             name: widget.nameController.text,
             age: widget.ageController.text,
-            gender: widget.selectedGender.toString(),
+            gender: selectedGender,
           ),
         );
 
@@ -120,15 +109,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 20),
                   GenderSelection(
-                    selectedGender: widget.selectedGender ?? 0,
-                    onGenderSelected: (gender) {
-                      // Change value widget.selectedGender == 0 to widget.selectedGender == "Laki - Laki"
-                      // Change value widget.selectedGender == 1 to widget.selectedGender == "Perempuan"
-                      if (widget.selectedGender == 0) {
+                    onChanged: (value) {
+                      if (value == 'Laki - Laki') {
                         widget._showToast('Laki - Laki');
-                      } else if (widget.selectedGender == 1) {
+                      } else if (value == 'Perempuan') {
                         widget._showToast('Perempuan');
                       }
+                      setState(() {
+                        selectedGender = value;
+                      });
                     },
                   ),
                   const SizedBox(height: 20),

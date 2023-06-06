@@ -1,54 +1,46 @@
 part of 'widgets.dart';
 
 class GenderSelection extends StatefulWidget {
-  final int selectedGender;
-  final void Function(int) onGenderSelected;
+  final ValueSetter<String> onChanged;
 
-  GenderSelection(
-      {required this.selectedGender, required this.onGenderSelected});
+  const GenderSelection({super.key, required this.onChanged});
 
   @override
   _GenderSelectionState createState() => _GenderSelectionState();
 }
 
 class _GenderSelectionState extends State<GenderSelection> {
-  late int _selectedGender;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedGender = widget.selectedGender;
-  }
+  String selectedGender = '';
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Expanded(
-          child: RadioListTile<int>(
+          child: RadioListTile<String>(
             title: Text('Laki - Laki',
                 style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-            value: 0,
-            groupValue: _selectedGender,
+            value: 'Laki - Laki',
+            groupValue: selectedGender,
             onChanged: (value) {
               setState(() {
-                _selectedGender = value!;
-                widget.onGenderSelected(_selectedGender);
+                selectedGender = value!;
               });
+              widget.onChanged(value!);
             },
           ),
         ),
         Expanded(
-          child: RadioListTile<int>(
+          child: RadioListTile<String>(
             title: Text('Perempuan',
                 style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-            value: 1,
-            groupValue: _selectedGender,
+            value: 'Perempuan',
+            groupValue: selectedGender,
             onChanged: (value) {
               setState(() {
-                _selectedGender = value!;
-                widget.onGenderSelected(_selectedGender);
+                selectedGender = value!;
               });
+              widget.onChanged(value!);
             },
           ),
         ),

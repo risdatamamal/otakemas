@@ -36,9 +36,12 @@ class _HomePageState extends State<HomePage> {
                       margin: const EdgeInsets.only(left: 10, right: 20),
                       child: GestureDetector(
                         onTap: () {
-                          User? user = UserRepository(store: store).getUserById(1);
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (c) => ProfilePage(user: user!)));
+                          User? user =
+                              UserRepository(store: store).getUserById(1);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (c) => ProfilePage(user: user!)));
                         },
                         child: CircleAvatar(
                           radius: 50,
@@ -47,11 +50,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Text(
-                        "Saya Berkomitmen Untuk keluar \ndari kecanduan PMO \n(Pornography, Masturbasi, Orgasme)",
-                        style: GoogleFonts.poppins(
-                            color: black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold)),
+                      "Saya Berkomitmen Untuk keluar \ndari kecanduan PMO \n(Pornography, Masturbasi, Orgasme)",
+                      style: GoogleFonts.poppins(
+                          color: black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16.0),

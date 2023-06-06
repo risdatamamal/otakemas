@@ -23,30 +23,76 @@ class _StopwatchWidgetState extends State<StopwatchWidget> {
 
   void _startTimer() {
     if (!_isRunning) {
-      _stopwatch.start();
-      _timer = Timer.periodic(Duration(milliseconds: 1), (Timer timer) {
-        if (_stopwatch.isRunning) {
-          setState(() {
-            _elapsedTime = _formatTime(_stopwatch.elapsed);
-            _elapsedDays = (_stopwatch.elapsed.inHours / 24).floor();
-          });
-        }
-      });
-      setState(() {
-        _isRunning = true;
-      });
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Mulai Waktu'),
+            content: Text('Memulai Waktu Menahan Nafsu'),
+            actions: <Widget>[
+              ElevatedButton(
+                child: Text('Tidak'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ElevatedButton(
+                child: Text('Ya'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  _stopwatch.start();
+                  _timer = Timer.periodic(Duration(milliseconds: 1), (Timer timer) {
+                    if (_stopwatch.isRunning) {
+                      setState(() {
+                        _elapsedTime = _formatTime(_stopwatch.elapsed);
+                        _elapsedDays = (_stopwatch.elapsed.inHours / 24).floor();
+                      });
+                    }
+                  });
+                  setState(() {
+                    _isRunning = true;
+                  });
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
   void _stopTimer() {
     if (_isRunning) {
-      _stopwatch.stop();
-      _stopwatch.reset();
-      setState(() {
-        _isRunning = false;
-        _elapsedTime = '00:00:00';
-        _elapsedDays = 0;
-      });
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Konfirmasi'),
+            content: Text('Apakah Anda ingin menghentikan stopwatch?'),
+            actions: <Widget>[
+              ElevatedButton(
+                child: Text('Tidak'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ElevatedButton(
+                child: Text('Ya'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  _stopwatch.stop();
+                  _stopwatch.reset();
+                  setState(() {
+                    _isRunning = false;
+                    _elapsedTime = '00:00:00';
+                    _elapsedDays = 0;
+                  });
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
