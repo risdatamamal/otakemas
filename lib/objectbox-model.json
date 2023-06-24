@@ -31,10 +31,47 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "2:3176156093904506769",
+      "lastPropertyId": "5:108296408309162741",
+      "name": "StopTimer",
+      "properties": [
+        {
+          "id": "1:8507032092129119785",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:503985778816245384",
+          "name": "elapsedTime",
+          "type": 9
+        },
+        {
+          "id": "3:4807747723851967889",
+          "name": "elapsedDays",
+          "type": 6
+        },
+        {
+          "id": "4:5623350963485438669",
+          "name": "userId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:5772285415251405113",
+          "relationTarget": "User"
+        },
+        {
+          "id": "5:108296408309162741",
+          "name": "alasan",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "1:8931733683042250688",
-  "lastIndexId": "0:0",
+  "lastEntityId": "2:3176156093904506769",
+  "lastIndexId": "1:5772285415251405113",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

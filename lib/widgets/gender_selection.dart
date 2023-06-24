@@ -14,35 +14,31 @@ class _GenderSelectionState extends State<GenderSelection> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: <Widget>[
-        Expanded(
-          child: RadioListTile<String>(
-            title: Text('Laki - Laki',
-                style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-            value: 'Laki - Laki',
-            groupValue: selectedGender,
-            onChanged: (value) {
-              setState(() {
-                selectedGender = value!;
-              });
-              widget.onChanged(value!);
-            },
-          ),
+        RadioListTile<String>(
+          title: Text('Laki - Laki',
+              style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+          value: 'Laki - Laki',
+          groupValue: selectedGender,
+          onChanged: (value) {
+            setState(() {
+              selectedGender = value!;
+            });
+            widget.onChanged(value!);
+          },
         ),
-        Expanded(
-          child: RadioListTile<String>(
-            title: Text('Perempuan',
-                style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-            value: 'Perempuan',
-            groupValue: selectedGender,
-            onChanged: (value) {
-              setState(() {
-                selectedGender = value!;
-              });
-              widget.onChanged(value!);
-            },
-          ),
+        RadioListTile<String>(
+          title: Text('Perempuan',
+              style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+          value: 'Perempuan',
+          groupValue: selectedGender,
+          onChanged: (value) {
+            setState(() {
+              selectedGender = value!;
+            });
+            widget.onChanged(value!);
+          },
         ),
       ],
     );

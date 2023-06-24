@@ -45,6 +45,7 @@ class _DzikirPagiPageState extends State<DzikirPagiPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           color: backgroundDzikirPagi,

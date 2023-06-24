@@ -1,13 +1,19 @@
 part of '../pages.dart';
 
 class RiwayatPage extends StatefulWidget {
-  const RiwayatPage({Key? key}) : super(key: key);
+  final User user;
+  const RiwayatPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<RiwayatPage> createState() => _RiwayatPageState();
 }
 
 class _RiwayatPageState extends State<RiwayatPage> {
+  // StopTimer stopTimer = StopTimer(
+  //   elapsedTime: "00:00:00",
+  //   elapsedDays: 0,
+  // )..user.target = widget.user;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

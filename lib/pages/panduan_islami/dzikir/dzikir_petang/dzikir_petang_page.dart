@@ -45,6 +45,7 @@ class _DzikirPetangPageState extends State<DzikirPetangPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           color: backgroundDzikirPetang,

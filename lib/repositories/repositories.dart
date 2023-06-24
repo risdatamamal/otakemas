@@ -5,3 +5,4 @@ import 'package:path_provider/path_provider.dart';
 
 part 'object_box.dart';
 part 'user_repository.dart';
+part 'stoptime_repository.dart';

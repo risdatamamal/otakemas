@@ -47,6 +47,45 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[
+        ModelBacklink(
+            name: 'stopTimer', srcEntity: 'StopTimer', srcField: 'user')
+      ]),
+  ModelEntity(
+      id: const IdUid(2, 3176156093904506769),
+      name: 'StopTimer',
+      lastPropertyId: const IdUid(5, 108296408309162741),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8507032092129119785),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 503985778816245384),
+            name: 'elapsedTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 4807747723851967889),
+            name: 'elapsedDays',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 5623350963485438669),
+            name: 'userId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(1, 5772285415251405113),
+            relationTarget: 'User'),
+        ModelProperty(
+            id: const IdUid(5, 108296408309162741),
+            name: 'alasan',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -70,8 +109,8 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(1, 8931733683042250688),
-      lastIndexId: const IdUid(0, 0),
+      lastEntityId: const IdUid(2, 3176156093904506769),
+      lastIndexId: const IdUid(1, 5772285415251405113),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
@@ -86,7 +125,11 @@ ModelDefinition getObjectBoxModel() {
     User: EntityDefinition<User>(
         model: _entities[0],
         toOneRelations: (User object) => [],
-        toManyRelations: (User object) => {},
+        toManyRelations: (User object) => {
+              RelInfo<StopTimer>.toOneBacklink(
+                      4, object.id, (StopTimer srcObject) => srcObject.user):
+                  object.stopTimer
+            },
         getId: (User object) => object.id,
         setId: (User object, int id) {
           object.id = id;
@@ -115,7 +158,48 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 8, ''),
               gender: const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 10, ''));
+          InternalToManyAccess.setRelInfo<User>(
+              object.stopTimer,
+              store,
+              RelInfo<StopTimer>.toOneBacklink(
+                  4, object.id, (StopTimer srcObject) => srcObject.user));
+          return object;
+        }),
+    StopTimer: EntityDefinition<StopTimer>(
+        model: _entities[1],
+        toOneRelations: (StopTimer object) => [object.user],
+        toManyRelations: (StopTimer object) => {},
+        getId: (StopTimer object) => object.id,
+        setId: (StopTimer object, int id) {
+          object.id = id;
+        },
+        objectToFB: (StopTimer object, fb.Builder fbb) {
+          final elapsedTimeOffset = fbb.writeString(object.elapsedTime);
+          final alasanOffset = fbb.writeString(object.alasan);
+          fbb.startTable(6);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, elapsedTimeOffset);
+          fbb.addInt64(2, object.elapsedDays);
+          fbb.addInt64(3, object.user.targetId);
+          fbb.addOffset(4, alasanOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
 
+          final object = StopTimer(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              elapsedTime: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
+              elapsedDays:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0),
+              alasan: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 12, ''));
+          object.user.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0);
+          object.user.attach(store);
           return object;
         })
   };
@@ -136,4 +220,26 @@ class User_ {
 
   /// see [User.gender]
   static final gender = QueryStringProperty<User>(_entities[0].properties[3]);
+}
+
+/// [StopTimer] entity fields to define ObjectBox queries.
+class StopTimer_ {
+  /// see [StopTimer.id]
+  static final id = QueryIntegerProperty<StopTimer>(_entities[1].properties[0]);
+
+  /// see [StopTimer.elapsedTime]
+  static final elapsedTime =
+      QueryStringProperty<StopTimer>(_entities[1].properties[1]);
+
+  /// see [StopTimer.elapsedDays]
+  static final elapsedDays =
+      QueryIntegerProperty<StopTimer>(_entities[1].properties[2]);
+
+  /// see [StopTimer.user]
+  static final user =
+      QueryRelationToOne<StopTimer, User>(_entities[1].properties[3]);
+
+  /// see [StopTimer.alasan]
+  static final alasan =
+      QueryStringProperty<StopTimer>(_entities[1].properties[4]);
 }

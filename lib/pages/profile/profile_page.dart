@@ -54,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 Text(
-                  widget.user.gender.toString(),
+                  widget.user.gender,
                   style: GoogleFonts.poppins(
                     color: black,
                     fontSize: 12,
@@ -95,8 +95,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       textColor: black,
                       title: "Riwayat Tersimpan",
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (c) => RiwayatPage()));
+                        User? user =
+                            UserRepository(store: store).getUserById(1);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (c) => RiwayatPage(user: user!),
+                          ),
+                        );
                       },
                     ),
                     const SizedBox(height: 16),

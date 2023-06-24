@@ -39,9 +39,11 @@ class _HomePageState extends State<HomePage> {
                           User? user =
                               UserRepository(store: store).getUserById(1);
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (c) => ProfilePage(user: user!)));
+                            context,
+                            MaterialPageRoute(
+                              builder: (c) => ProfilePage(user: user!),
+                            ),
+                          );
                         },
                         child: CircleAvatar(
                           radius: 50,

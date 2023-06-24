@@ -1,11 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
 import 'dart:async';
 
 import 'package:OtakEmas/models/models.dart';
-import 'package:OtakEmas/pages/pages.dart';
-import 'package:OtakEmas/pages/pages.dart';
 import 'package:OtakEmas/shared/shared.dart';
 import 'package:OtakEmas/widgets/widgets.dart';
 import 'package:OtakEmas/entities/entities.dart';
@@ -14,22 +9,13 @@ import 'package:OtakEmas/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'package:supercharged/supercharged.dart';
-import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../objectbox.g.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 
 import '../main.dart';
 
